@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
@@ -15,7 +16,7 @@ const port = process.env.port || 5000;
 app.use(cors());
 
 //initilazie BodyParser Middleware
-app.use(express.json());
+app.use(bodyParser.json());
 
 //initilazie Public Directory
 
