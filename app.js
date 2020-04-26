@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const path = require('path');
-// const cors = require('cors');
+const path = require('path');
+const cors = require('cors');
 
 const connectDB = require('./config/db');
 
@@ -13,16 +13,16 @@ connectDB();
 const port = process.env.port || 8080;
 
 //initilazie cors Middleware
-// app.use(cors());
+app.use(cors());
 
 //initilazie BodyParser Middleware
 app.use(bodyParser.json());
 
 //initilazie Public Directory
 
-// app.get('*',(req,res)=>{
-//     res.sendFile(path.join(__dirname,'public/index.html'));
-// });
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/index.html'));
+});
 
 const userRoutes = require('./routes/apis/user');
 
