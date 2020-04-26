@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 const userRoutes = require('./routes/apis/user');
 
-app.use('/api/users',userRoutes);
+app.use(userRoutes);
 
 app.listen(port,()=>{
     console.log('server start on port',port)
