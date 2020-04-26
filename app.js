@@ -1,26 +1,19 @@
 const express = require('express');
-const mongoes = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-const path = require('path');
+// const path = require('path');
+// const cors = require('cors');
+
+const connectDB = require('./config/db');
 
 const app = express();
-const db = require('./config/db').database;
 
-//database connection
-mongoes.connect(db,{useNewUrlParser:true})
-       .then(()=>{
-           console.log('database connected successfully');
-       })
-       .catch((error)=>{
-           console.log('unable to connect with the database',error);
-       });
+connectDB();
 
 //defining the PORT
-const port = process.env.port || 5000;
+const port = process.env.port || 8080;
 
 //initilazie cors Middleware
-app.use(cors());
+// app.use(cors());
 
 //initilazie BodyParser Middleware
 app.use(bodyParser.json());

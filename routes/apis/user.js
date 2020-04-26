@@ -13,12 +13,13 @@ router.post('/login',(req,res,next)=>{
                 {
                     res.status(200);
                     res.json("login")
-                }   
-    }).then(error=>
-        {
-            res.status(400);
-            res.json("email or password not match")
-        });
+                } 
+                else
+                {
+                    res.status(400);
+                    res.json("email or password not match");
+                }  
+    });
 });
 
 router.post('/register',(req,res,next)=>{
